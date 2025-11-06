@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Moramit&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color:#1c6ba0;
+  padding: 15px 40px;
+  color: #fff;
+  font-family: 'Georgia', sans-serif;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0b27a;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse; /* Inverte a ordem dos elementos */
+  gap: 10px; /* Espaço entre o link e o ícone */
+}
+
+.nav-action {
+  margin-right: 15px; /* Ajusta o espaço entre o ícone e o link */
+}
+
+.logo-img {
+  height: 50px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+}
