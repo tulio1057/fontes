@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
-import Button from "./Button";
 
 function Navbar() {
   return (
@@ -12,21 +11,21 @@ function Navbar() {
       <ul className="nav-links">
         <li>
           <Link to="/">Home</Link>
-          <div className="nav-action">
-            <Button />
-          </div>
-        </li>
-        <li>
-          <Link to="/menu">Cardápio</Link>
         </li>
         <li>
           <Link to="/sobre">Sobre</Link>
         </li>
         <li>
-          <Link to="/contato">Contato</Link>
+          <Link to="/diretoria">Diretoria</Link>
         </li>
         <li>
-          <Link to="/localizacao">Localização</Link>
+          <Link to="/voluntarios">Voluntarios</Link>
+        </li>
+        <li>
+          <Link to="/transparencia">Prestação de Contas</Link>
+        </li>
+        <li>
+          <Link to="/doar">Doar</Link>
         </li>
       </ul>
     </nav>
