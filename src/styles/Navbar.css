@@ -1,103 +1,124 @@
-@import url('https://fonts.googleapis.com/css2?family=Moramit&display=swap');
+/* Importa a fonte (se estiver sendo usada, senão pode remover) */
+@import url('https://fonts.googleapis.com/css2?family=Moramit&display=swap' );
+
 .navbar {
+  /* --- Layout Principal --- */
   display: flex;
-  background-color: #1c6ba0;
-  padding: 15px 20px;
-  color: #fff;
-  font-family: 'Georgia', sans-serif;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-top: 0;
-  align-items: center;
+  align-items: center; /* Alinha verticalmente o logo e os links */
+  justify-content: space-between; /* ✨ MÁGICA: Empurra o logo para a esquerda e os links para a direita */
+
+  /* --- Posicionamento Fixo --- */
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 90px;
-  z-index: 1000;
-}
-
-.logo {
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 30px;
-  margin-left: 640px; /* empurra os links pra direita */
-}
-.nav-links a {
-  text-decoration: none;
+  width: 100%; /* Garante que ocupe toda a largura */
+  z-index: 1000; /* Garante que fique sobre outros conteúdos */
+  
+  /* --- Estilo e Dimensões --- */
+  background-color: #1c6ba0;
   color: #fff;
-  font-size: 20px;
-  transition: 0.3s;
+  height: 90px; /* Altura fixa para a barra. Ajuste se necessário. */
+  padding: 0 40px; /* Espaçamento nas laterais para o conteúdo não colar nas bordas */
+  font-family: 'Georgia', sans-serif;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Garante que o padding não aumente a largura/altura total */
 }
 
-.nav-links a:hover {
-  color: #f0b27a;
-}
-
-.nav-links li {
-  display: flex;
-  align-items: center;
-  flex-direction: row-reverse; /* Inverte a ordem dos elementos */
-  gap: 10px; /* Espaço entre o link e o ícone */
-}
-
-.nav-action {
-  margin-right: 15px; /* Ajusta o espaço entre o ícone e o link */
-}
-
-.logo-img {
-  height: 50px;
-}
-
+/* --- Logo --- */
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 15px; /* Espaço entre a imagem e o texto do logo */
 }
+
+.logo-text {
+  font-size: 32px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none; /* Caso o logo seja um link */
+}
+
+/* --- Links de Navegação --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 35px; /* Espaço entre cada item de menu */
+  list-style: none; /* Remove as bolinhas da lista <ul> */
+  margin: 0; /* Remove margens padrão */
+  padding: 0; /* Remove paddings padrão */
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px; /* Um pouco menor para melhor harmonia */
+  padding: 5px 0; /* Aumenta a área de clique */
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f0b27a; /* Cor de destaque ao passar o mouse */
+}
+
+/* --- Botão "Doar" --- */
 .doar-btn {
   background-color: #1589d6;
-  color: #1c6ba0;
-  padding: 8px 16px;
+  color: #fff; /* Corrigido para ter um bom contraste inicial */
+  padding: 14px 28px !important; 
   border-radius: 6px;
   font-weight: bold;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
-  animation: pulse 1.5s infinite; /* 🔹 animação contínua */
+  transition: background-color 0.3s, transform 0.3s;
+  animation: pulse 2s infinite;
 }
 
 .doar-btn:hover {
   background-color: #05294b;
-  color: #d38115;
+  color: #f0b27a; /* Corrigido para combinar com o hover dos outros links */
   transform: scale(1.05);
+  animation-play-state: paused; /* Pausa a animação no hover para destacar a interação */
 }
 
-/* 🔸 animação pulsante */
+/* --- Animação Pulsante --- */
 @keyframes pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(240, 178, 122, 0.7);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4);
   }
   70% {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px 5px rgba(240, 178, 122, 0);
+    transform: scale(1.05);
+    box-shadow: 0 0 10px 15px rgba(255, 255, 255, 0);
   }
   100% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(240, 178, 122, 0);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
   }
 }
-@media (max-width: 768px) {
+
+/* --- Responsividade para Telas Pequenas --- */
+@media (max-width: 992px) { /* Ponto de quebra ajustado para tablets */
   .navbar {
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 0 20px; /* Menos padding nas laterais */
   }
 
   .nav-links {
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 20px; /* Menos espaço entre os links */
+  }
+
+  .nav-links a {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) { /* Ponto de quebra para celulares */
+  /* Em telas pequenas, geralmente se esconde os links e mostra um ícone de menu (hambúrguer).
+     A implementação completa disso requer JavaScript.
+     Por enquanto, vamos apenas ajustar para não quebrar. */
+  
+  .navbar {
+    justify-content: center; /* Centraliza o logo quando os links sumirem */
+  }
+
+  .nav-links {
+    display: none; /* Esconde os links em telas muito pequenas */
   }
 }

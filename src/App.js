@@ -1,5 +1,7 @@
+// App.js - VERSÃO CORRIGIDA
+
 import { Routes, Route } from "react-router-dom";
-import './App.css';
+import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Sobre from "./pages/Sobre";
@@ -11,8 +13,13 @@ import Doar from "./pages/Doar";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <Navbar />
+      {/* 1. Navbar fica no topo, fora de qualquer contêiner de conteúdo */}
+      <Navbar />
+
+      {/* 2. O conteúdo principal da página (as rotas) vem depois */}
+      <main className="App-content">
+        {" "}
+        {/* Adicionamos uma classe para estilizar se precisar */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sobre" element={<Sobre />} />
@@ -21,7 +28,7 @@ function App() {
           <Route path="/transparencia" element={<Transparencia />} />
           <Route path="/doar" element={<Doar />} />
         </Routes>
-      </header>
+      </main>
     </div>
   );
 }

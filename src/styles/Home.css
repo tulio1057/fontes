@@ -1,0 +1,8 @@
+/* src/pages/Home/Home.css */
+
+.welcome-section {
+  background-color: #282c34; /* Cor de fundo cinza escuro */
+  color: white;
+  padding: 80px 20px; /* Espaçamento interno para dar "ar" ao conteúdo */
+  text-align: center;
+}

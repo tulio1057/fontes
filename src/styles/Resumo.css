@@ -1,0 +1,16 @@
+/* src/components/Resumo.css */
+
+.resumo {
+  background-color: #187bd8; /* Cor de fundo azul */
+  color: white;
+  padding: 80px 20px; /* Espaçamento interno generoso */
+  
+  /* Propriedades para centralizar o CONTEÚDO DENTRO da seção */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  /* Garante que a seção não tenha margens externas indesejadas */
+  margin: 0;
+}
