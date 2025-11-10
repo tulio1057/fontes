@@ -25,7 +25,9 @@ function Navbar() {
           <Link to="/transparencia">Prestação de Contas</Link>
         </li>
         <li>
-          <Link to="/doar">Doar</Link>
+          <Link to="/doar" className="doar-btn">
+            Doar
+          </Link>
         </li>
       </ul>
     </nav>
